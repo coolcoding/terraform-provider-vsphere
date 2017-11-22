@@ -33,9 +33,6 @@ func dataSourceVSphereNetwork() *schema.Resource {
 
 func dataSourceVSphereNetworkRead(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*VSphereClient).vimClient
-	if err := validateVirtualCenter(client); err != nil {
-		return err
-	}
 
 	name := d.Get("name").(string)
 	var dc *object.Datacenter
